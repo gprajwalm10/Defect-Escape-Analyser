@@ -1,0 +1,8 @@
+req_id,module,req_title,rule_description,criticality
+REQ-101,Authentication & IAM,Account Lockout on Consecutive Failed Logins,User accounts must be temporarily locked for 15 minutes after 5 consecutive failed login attempts within 10 minutes to mitigate credential stuffing and brute-force attacks.,Critical
+REQ-102,Checkout & Pricing,Coupon Stacking & Cart Subtotal Floor,"Promotional discount coupons cannot be stacked beyond 50% total order discount, and the calculated final cart subtotal must never fall below $0.00.",High
+REQ-103,Payment Processing,Payment Intent Idempotency & Replay Protection,All payment authorization requests must supply a unique Idempotency-Key. Duplicate requests submitted within 60 seconds must return cached responses without charging the payment source twice.,Critical
+REQ-104,Digital Wallet Ledger,Atomic Wallet Debit & Concurrency Isolation,Digital wallet balance deductions must execute inside serializable ACID transactions with pessimistic row locks (SELECT FOR UPDATE) to eliminate race conditions and prevent negative balances.,Blocker
+REQ-105,Treasury & FX,Cross-Border FX Precision and Banker's Rounding,Currency conversions for international micro-settlements must preserve 6 decimal places during calculation and apply round-half-to-even (banker's rounding) before ledger persistence.,Medium
+REQ-106,Taxation Engine,Automated State Sales Tax Calculation,"Automated sales tax must calculate state, county, and municipal tax rates based on the buyer's 9-digit postal ZIP code before final invoice generation.",High
+REQ-107,Customer Notifications,Transactional SMS Dispatch,An automated SMS confirmation must be dispatched within 3 seconds of payment authorization to the verified mobile phone number on file.,Low

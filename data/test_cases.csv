@@ -1,0 +1,6 @@
+test_id,req_id,test_title,test_type,execution_status
+TC-201,REQ-102,Verify single 20% promotional coupon reduces subtotal,Unit,PASSED
+TC-202,REQ-103,Verify payment authorization succeeds with valid idempotency key,Integration,PASSED
+TC-203,REQ-105,Verify standard USD to EUR single conversion calculation,Unit,PASSED
+TC-204,REQ-106,Verify standard California sales tax calculation on retail orders,Regression,PASSED
+TC-205,REQ-107,Verify SMS notification queue receives order confirmation trigger,Integration,PASSED
