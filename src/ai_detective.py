@@ -14,10 +14,18 @@ try:
 except ImportError:
     GOOGLE_GENAI_AVAILABLE = False
 
+# Load keys from Streamlit Cloud secrets OR local .env environment variables
+def _get_key(name: str) -> str:
+    try:
+        import streamlit as st
+        return st.secrets.get(name, os.getenv(name, ""))
+    except Exception:
+        return os.getenv(name, "")
+
 GEMINI_KEYS_POOL = [
-    os.getenv("GEMINI_API_KEY_1", ""),
-    os.getenv("GEMINI_API_KEY_2", ""),
-    os.getenv("GEMINI_API_KEY_3", ""),
+    _get_key("GEMINI_API_KEY_1"),
+    _get_key("GEMINI_API_KEY_2"),
+    _get_key("GEMINI_API_KEY_3"),
 ]
 
 
